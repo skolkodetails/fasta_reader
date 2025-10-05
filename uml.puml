@@ -1,0 +1,31 @@
+@startuml
+title FASTA Reader UML Diagram
+
+skinparam backgroundColor #fefefe
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor PaleGreen
+    BorderColor DarkGreen
+}
+
+class Seq {
+    - protein_alphabet: set
+    - nuc_alphabet: set
+    - sequence: str
+    - inf: str
+    + init(sequence: str, inf: str)
+    + str(): str
+    + len(): int
+    + alph(): str
+}
+
+class FastaReader {
+    - path: str
+    + init(path: str)
+    + check(): bool
+    + read(): Seq
+}
+
+FastaReader --> Seq : создает объекты
+
+@enduml
